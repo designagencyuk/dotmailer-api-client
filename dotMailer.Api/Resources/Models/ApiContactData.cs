@@ -6,5 +6,8 @@ namespace dotMailer.Api.Resources.Models
 	{
 		public string Key
 		{ get; set; }
+
+        public string Value
+		{ get; set; }
 	}
 }

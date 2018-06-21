@@ -23,6 +23,16 @@ namespace dotMailer.Api
             jsonFormatter = new JsonMediaTypeFormatter { SerializerSettings = settings };
         }
 
+        public Client(string username, string password, string baseUrl)
+        {
+            BaseAddress = baseUrl;
+            httpClient = GetHttpClient(username, password);
+
+            var settings = new JsonSerializerSettings();
+            settings.Converters.Add(new StringEnumConverter());
+            jsonFormatter = new JsonMediaTypeFormatter { SerializerSettings = settings };
+        }
+
         #region Helpers
 
         private HttpClient GetHttpClient(string username, string password)
